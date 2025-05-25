@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RegistrationForm extends AbstractType
 {
@@ -54,6 +55,16 @@ class RegistrationForm extends AbstractType
                     ]),
                 ],
             ])
+            ->add('role', ChoiceType::class, [
+                'mapped' => false, 
+                'label' => 'Choose account type',
+                'choices' => [
+                    'User' => 'ROLE_USER',
+                    'Seller' => 'ROLE_SELLER',
+                ],
+                'expanded' => true, 
+                'multiple' => false, 
+            ]);
         ;
     }
 

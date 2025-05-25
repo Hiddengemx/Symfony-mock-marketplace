@@ -33,7 +33,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/products/create', name: 'product_create')]
-    #[IsGranted('ROLE_USER')]
+    #[IsGranted('ROLE_SELLER')]
     public function create(Request $req, EntityManagerInterface $manager): Response
     { 
         $product = new Product;
@@ -62,7 +62,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/product/{id<\d+>}/edit', name: 'product_edit')]
-    #[IsGranted('ROLE_USER')]
+    #[IsGranted('ROLE_SELLER')]
     public function edit(Product $product, Request $request, EntityManagerInterface $manager): Response
     {
         $form = $this->createForm(ProductForm::class, $product);
@@ -90,7 +90,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/product/{id<\d+>}/delete', name: 'product_delete')]
-    #[IsGranted('ROLE_USER')]
+    #[IsGranted('ROLE_SELLER')]
     public function delete(Request $req, Product $product, EntityManagerInterface $manager): Response
     {
         if($req->isMethod('POST')) {

@@ -15,15 +15,23 @@
             <td>{{ product.description }}</td>
         </tr>
         <tr>
-            <th>Size</th>
-            <td>{{ product.size }}</td>
+            <th>Price ($)</th>
+            <td>{{ product.price }}</td>
         </tr>
     </tbody>
 </table>
 
+{% if is_granted('ROLE_SELLER') %}
+
 <a href="{{ path('product_edit', {'id': product.id}) }}">Edit</a>
 
 <a href="{{ path('product_delete', {'id': product.id}) }}">Delete</a>
+
+{% endif %}
+
+{% if is_granted('ROLE_USER') and not is_granted('ROLE_SELLER') %}
+    <button>Buy</button>
+{% endif %}
 
 <a href="/products">Back</a>
 

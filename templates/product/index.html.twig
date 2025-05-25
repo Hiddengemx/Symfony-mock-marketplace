@@ -5,14 +5,18 @@
 {% block body %}
 <h1>Products</h1>
 
+{% if is_granted('ROLE_SELLER') %}
+
 <a href="{{ path('product_create') }}">Create Product</a>
+
+{% endif %}
 
 <table>
     <thead>
         <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Size</th>
+            <th>Price ($)</th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +28,7 @@
                     </a>
                 </td>
                 <td>{{ product.description }}</td>
-                <td>{{ product.size }}</td>
+                <td>{{ product.price }}</td>
             </tr>
         {% endfor %}
     </tbody>

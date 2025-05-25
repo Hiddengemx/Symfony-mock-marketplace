@@ -13,21 +13,21 @@ class AppFixtures extends Fixture
         $product = new Product;
         $product->setName('Product 1');
         $product->setDescription('This is the 1st product');
-        $product->setSize(100);
+        $product->setPrice(100);
 
         $manager->persist($product);
 
         $product = new Product;
         $product->setName('Product 2');
         $product->setDescription('This is the 2nd product');
-        $product->setSize(200);
+        $product->setPrice(200);
 
         $manager->persist($product);
 
         $product = new Product;
         $product->setName('Product 3');
         $product->setDescription('This is the 3rd product');
-        $product->setSize(300);
+        $product->setPrice(300);
 
         $manager->persist($product);
 

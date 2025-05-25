@@ -26,7 +26,7 @@ class Product
     #[Assert\NotBlank]
     #[Assert\Type('integer')]
     #[Assert\Positive]
-    private ?int $size = null;
+    private ?int $price = null;
 
     public function getId(): ?int
     {
@@ -57,14 +57,14 @@ class Product
         return $this;
     }
 
-    public function getSize(): ?int
+    public function getPrice(): ?int
     {
-        return $this->size;
+        return $this->price;
     }
 
-    public function setSize(int $size): static
+    public function setPrice(int $price): static
     {
-        $this->size = $size;
+        $this->price = $price;
 
         return $this;
     }

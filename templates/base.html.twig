@@ -17,7 +17,10 @@
                 {{ message }}
             </div>
         {% endfor %}
-
+                {% if is_granted('ROLE_USER') %}
+                <p>
+        You are logged in as {{ app.user.userIdentifier }} ({{ app.user.roles[0] }}), <a href="{{ path('app_logout') }}">Logout</a>
+        {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>
